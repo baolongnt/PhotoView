@@ -10,14 +10,22 @@ import android.view.ViewGroup;
 public class ImageAdapter extends RecyclerView.Adapter<ImageViewHolder> {
 
     Listener mListener;
+    boolean zoomable;
 
     public ImageAdapter(Listener listener) {
-        mListener = listener;
+        this(listener, false);
+    }
+
+    public ImageAdapter(Listener mListener, boolean zoomable) {
+        this.mListener = mListener;
+        this.zoomable = zoomable;
     }
 
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ImageViewHolder holder = ImageViewHolder.inflate(parent);
+        ImageViewHolder holder = zoomable
+                                 ? ZoomableImageViewHolder.inflate(parent)
+                                 : ImageViewHolder.inflate(parent);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
