@@ -35,7 +35,8 @@ public class LauncherActivity extends AppCompatActivity {
             "Rotation Sample",
             "Picasso Sample",
             "Activity Transition Sample",
-            "Immersive Sample"
+            "Immersive Sample",
+            "RecyclerView Sample"
     };
 
     @Override
@@ -78,6 +79,8 @@ public class LauncherActivity extends AppCompatActivity {
                             break;
                         case 5:
                             clazz = ImmersiveActivity.class;
+                        case 6:
+                            clazz = RecyclerViewSampleActivity.class;
                     }
 
                     Context context = holder.itemView.getContext();
